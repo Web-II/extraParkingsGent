@@ -1,0 +1,34 @@
+div.card-content:hover {
+  cursor: pointer;
+}
+h1,
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 0.5rem;
+}
+h3,
+p,
+.card-content {
+  text-align: center;
+  font-size: 1rem;
+}
+p {
+  text-align: left;
+}
+span.free {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+div.detail {
+  text-align: left;
+}
+.greenStatus {
+  color: lightseagreen;
+}
+.orangeStatus {
+  color: orange;
+}
+.redStatus {
+  color: orangered;
+}

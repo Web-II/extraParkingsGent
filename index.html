@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parkings Gent</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="css/parking.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h1 class="blue-text">Parkings in Gent - <span id="total"></span></h1>
+
+          <div id="parkings" class="card blue-text text-darken-2"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+    <script type="module" src="js/streetmap.js"></script>
+    <script type="module" src="js/parkings.js"></script>
+  </body>
+</html>
