@@ -72,7 +72,7 @@ class ParkingsRepository {
 
   }
 
-  getParkingByName(id) {
+  getParkingById(id) {
 
   }
 }
