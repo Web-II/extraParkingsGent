@@ -137,7 +137,7 @@ class ParkingsApp {
 						</div> 
 					</div>
 					<div class="card-image">
-						<div id="map" style="height:350px" ></div>
+						<div id="map"></div>
 					</div>       
 				</div>
 			</div>
