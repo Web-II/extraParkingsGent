@@ -5,7 +5,8 @@ function fetchRequest(url) {
 }
 
 class Parking {
-  constructor(latitude, longitude, address, contact, total, free, lastModified) {
+  constructor(name, latitude, longitude, address, contact, total, free, lastModified) {
+    this._name = name;
     this._latitude = latitude;
     this._longitude = longitude;
     this._address = address;
@@ -16,7 +17,9 @@ class Parking {
       'lastModified': lastModified
     }
   }
-
+  get name() {
+    return this._name;
+  }
   get latitude() {
     return this._latitude;
   }
@@ -64,11 +67,12 @@ class ParkingsRepository {
   get totalCapacity() {
 
   }
-  parking(name, latitude, longitude, address, contact, total, free, lastModified) {
+
+  parking(id, name, latitude, longitude, address, contact, total, free, lastModified) {
 
   }
 
-  getParkingByName(name) {
+  getParkingByName(id) {
 
   }
 }
@@ -82,9 +86,8 @@ class ParkingsApp {
   getData() {
     const url =
       "https://data.stad.gent/api/records/1.0/search/?dataset=bezetting-parkeergarages-real-time";
-    //fetch data 
-  }
 
+  }
 
   showParkings() {
     document.getElementById("parkings").innerHTML = "";
@@ -94,14 +97,14 @@ class ParkingsApp {
     }, 60000);
     document.getElementById("total").innerHTML = `Free: ${this._parkingsRepository.totalFree}/${this._parkingsRepository.totalCapacity} on ${new Date().toLocaleDateString()}`;
 
-    this._parkingsRepository.parkings.forEach(([name, parking]) => {
+    this._parkingsRepository.parkings.forEach(([id, parking]) => {
       document.getElementById("parkings").insertAdjacentHTML(
         "beforeend",
         `     
 				<div class="col s12 m6 l4">
-				<div class="card" id="${name}">				
+				<div class="card" id="${id}">				
 					<div class="card-content">
-          <span class="card-title">${name}</span>
+          <span class="card-title">${parking.name}</span>
 						<span class="free ${parking.statusColor}">${parking.status.free}</span><hr>
 						<p>Capacity: ${parking.total}</p> <p>Free: ${parking.procentFree} %</p>             					
 						<p>Last update: ${parking.status.lastModified.slice(11, 16)}</p>
@@ -111,23 +114,23 @@ class ParkingsApp {
 				</div>
 				`
       );
-      //show one parking use name of parking to get parking
-      document.getElementById(name).onclick = () => {
+      document.getElementById(id).onclick = () => {
 
       };
     });
   }
-  showParking(name, parking) {
+
+  showParking(parking) {
     if (this._timer) clearInterval(this._timer);
     document.getElementById("parkings").innerHTML = "";
     document.getElementById("parkings").insertAdjacentHTML(
       "beforeend",
       `     
-			<div class="col s12">
+			<div id="back" class="col s12">
 				<div class="card">				
 					<div class="card-stacked">  
 						<div class="card-content detail">
-							<span class="card-title">${name}</span>             
+							<span class="card-title">${parking.name}</span>             
 							<ul>
 								<li><label>Free:</label> ${parking.status.free}</li>
 								<li><label>Capacity:</label> ${parking.total}</li>
@@ -137,16 +140,15 @@ class ParkingsApp {
 						</div> 
 					</div>
 					<div class="card-image">
-						<div id="map" style="height:350px" ></div>
+						<div id="map"></div>
 					</div>       
 				</div>
 			</div>
 			<div class="col s12">
-			<a id="back" class="waves-effect waves-light btn-small">Back</a>
+			
 			</div>
 			`
     );
-    //show on StreetMap
 
   }
 }
