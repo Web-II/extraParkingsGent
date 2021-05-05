@@ -32,3 +32,6 @@ div.detail {
 .redStatus {
   color: orangered;
 }
+#map{
+  height: 350px;
+}

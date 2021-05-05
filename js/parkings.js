@@ -123,7 +123,7 @@ class ParkingsApp {
     document.getElementById("parkings").insertAdjacentHTML(
       "beforeend",
       `     
-			<div class="col s12">
+			<div id="back" class="col s12">
 				<div class="card">				
 					<div class="card-stacked">  
 						<div class="card-content detail">
@@ -142,7 +142,6 @@ class ParkingsApp {
 				</div>
 			</div>
 			<div class="col s12">
-			<a id="back" class="waves-effect waves-light btn-small">Back</a>
 			</div>
 			`
     );
