@@ -145,10 +145,7 @@ class ParkingsApp {
 				</div>
 			</div>
 			<div class="col s12">
-<<<<<<< HEAD
 			
-=======
->>>>>>> 248f50cfccb745b5ae091183a2a79888247af5f6
 			</div>
 			`
     );
