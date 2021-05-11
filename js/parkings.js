@@ -72,9 +72,6 @@ class ParkingsRepository {
 
   }
 
-  getParkingById(id) {
-
-  }
 }
 
 class ParkingsApp {
@@ -102,15 +99,15 @@ class ParkingsApp {
         "beforeend",
         `     
 				<div class="col s12 m6 l4">
-				<div class="card" id="${id}">				
-					<div class="card-content">
-          <span class="card-title">${parking.name}</span>
-						<span class="free ${parking.statusColor}">${parking.status.free}</span><hr>
-						<p>Capacity: ${parking.total}</p> <p>Free: ${parking.procentFree} %</p>             					
-						<p>Last update: ${parking.status.lastModified.slice(11, 16)}</p>
-					</div> 
-					</div>       
-				</div>
+          <div class="card" id="${id}">				
+            <div class="card-content">
+            <span class="card-title">${parking.name}</span>
+              <span class="free ${parking.statusColor}">${parking.status.free}</span><hr>
+              <p>Capacity: ${parking.total}</p> <p>Free: ${parking.procentFree} %</p>             					
+              <p>Last update: ${parking.status.lastModified.slice(11, 16)}</p>
+            </div> 
+            </div>       
+          </div>
 				</div>
 				`
       );
@@ -143,9 +140,6 @@ class ParkingsApp {
 						<div id="map"></div>
 					</div>       
 				</div>
-			</div>
-			<div class="col s12">
-			
 			</div>
 			`
     );
